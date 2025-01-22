@@ -1,0 +1,57 @@
+
+Sistema Operativo   
+	Mediador entre hardware y usuario.  
+	Gestiona recursos.  
+	Entorno para ejecutar programas.  
+	Funciones 
+		Gestión de procesos 
+			Supervisión de la CPU.  
+			Coordinación de estados de los procesos.
+			Comunicación entre procesos.  
+		Gestión de memoria  
+			Asignación y liberación de memoria.  
+			Paginación y segmentación.  
+		Gestión de archivos 
+			Organización.  
+			Permisos y seguridad de datos.  
+		Gestión de dispositivos
+			Controladores de hardware.  
+			Soporte de periféricos.  
+		Seguridad y protección
+			Autenticación y permisos.  
+			Protección contra malware.  
+		Interfaz de usuario 
+			GUI o CLI.  
+	Estructura 
+		Hardware 
+			CPU, RAM, discos, dispositivos de E/S.
+		Kernel 
+			Monolítico o microkernel.  
+			Coordina directamente el hardware.  
+		Llamadas al sistema
+			Interfaz entre aplicaciones y el núcleo.  
+		Servicios del sistema
+			Funciones como redes y seguridad.  
+		Interfaz de usuario
+			Escritorios gráficos o terminal.  
+	Tipos  
+		Por tareas  
+			Monotarea.  
+			Multitarea.  
+		Por usuarios 
+			Monousuario.  
+			Multiusuario.  
+		Especializados 
+			Tiempo real.  
+			Distribuidos.  
+			Embebidos.  
+	Clasificación
+		De escritorio
+			Windows, macOS, Linux.
+		Móviles
+			Android, iOS.
+		De servidores
+			Windows Server, Ubuntu Server.
+		Especializados
+			Sistemas operativos embebidos.
+			Sistemas distribuidos.
