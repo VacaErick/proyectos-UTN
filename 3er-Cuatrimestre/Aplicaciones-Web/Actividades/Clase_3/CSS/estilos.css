@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.gradiente {
+    background: linear-gradient(to right, #fef38e, #2f1d62);
+}
+.contenedor{
+    width: 95%;
+    margin: 5px auto;
+    border: 1px #fef38e outset; /*solid,inset,groove,dashed*/
+    border-radius: 10px;
+}
+.menu{
+    height: 80px;
+    text-align: right;
+    line-height: 80px; /*centrar verticalmente*/
+}
+.menu ul li{
+    display: inline-block;
+    margin: 0px 30px;
+}
+.cabecera{
+    height: 200px;
+    background-image: url(../images/abstract-8315974_640.webp);
+    line-height: 200px;
+    background-size: cover;
+}
+.cabecera h2{
+    color: white;
+    font-size: 7em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.principal p{
+    text-align: center;
+    padding: 25px 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 30px;
+}
+.principal h3{
+    text-align: center;
+    color: #040028;
+}
+.capas .uno, .dos, .tres{
+    width: 33.3%;
+    float: left;
+    height: 200px;
+}
+.pre{
+    clear: both;
+    height: 25px;
+    text-align: right;
+}

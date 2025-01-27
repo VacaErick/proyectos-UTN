@@ -1,0 +1,133 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.gradiente {
+    background-color: #f5d3ba;
+}
+.contenedor{
+    width: 95%;
+    margin: 5px auto;
+}
+nav .logo, .menu, .social{
+    background-color: #fff200;
+    float: left;
+    height: 100px;
+}
+.menu {
+    width: 60%;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 2.5em;
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.menu a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 100px;
+}
+.menu a:hover {
+    text-decoration: underline;
+}
+.logo{
+    width: 10%;
+    background-image: url(../images/dulces-de-la-rosa-logo-9FCA856576-seeklogo.com.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.social{
+    width: 30%;
+    background-image: url(../images/png-clipart-facebook-twitter-and-instagram-logo-social-media-facebook-computer-icons-social-networking-service-like-us-on-facebook-text-log.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.cabecera{
+    clear: both;
+    width: 100%;
+    background-image: url(../images/beneficios-del-cacahuate-para-la-salud-que-debes-conocer-3237332761.png);
+    text-align: center;
+    height: 150px;
+    line-height: 150px;
+}
+header h1{
+    color: #ff0000;
+    font-size: 7em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.principal .uno, .dos{
+    width: 50%;
+    float: left;
+    height: 280px;
+    text-align: center;
+}
+.uno{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.dos{
+    background-image: url(../images/il_fullxfull.2707030483_nxv8-1061219270-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section .izq, .cen, .der{
+    width: 33.3%;
+    float: left;
+    height: 150px;
+    text-align: center;
+}
+.izq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.cen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+.der{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+section .tres{
+    width: 30%;
+    background-image: url(../images/3d0f3f3d-c44d-4cb9-92d9-3d76ddaf7f2c.__CR0_129_1177_728_PT0_SX970_V1___-1732753612-removebg-preview.png);
+    float: left;
+    height: 250px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+section .cuatro{
+    width: 70%;
+    float: left;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+.pre{
+    width: 100%;
+    background-color: #ff0000;
+    height: 50px;
+    text-align: right;
+    float: left;
+    color: white;
+    line-height: 50px;
+    font-size: 1.5em;
+}
