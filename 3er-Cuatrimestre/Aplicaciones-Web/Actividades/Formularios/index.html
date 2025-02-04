@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formularios</title>
+    <link rel="stylesheet" href="CSS/estilos.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <form method="post">
+        <p>
+          <label for="nombre">NOMBRE</label><br />
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            autofocus
+            placeholder="su nombre"
+            required
+          />
+        </p>
+        <p>
+          <label for="apellidos">APELLIDOS</label><br />
+          <input
+            type="text"
+            id="apellidos"
+            name="apellidos"
+            placeholder="sus apellidos"
+            required
+            size="50"
+            title="favor de enviar sus apellidos"
+          />
+        </p>
+        <p>
+          <label for="genero">GENERO</label><br />
+          <input
+            type="text"
+            id="genero"
+            name="genero"
+            value="masculino"
+            readonly
+          />
+        </p>
+        <p>
+          <input type="hidden" id="clave" name="clave" value="1000" />
+        </p>
+        <p>
+          <label for="comentario">COMENTARIO</label><br />
+          <textarea
+            id="comentario"
+            name="comentario"
+            required
+            cols="50"
+            rows="6"
+          ></textarea>
+        </p>
+        <p>
+          <label for="municipio">MUNICIPIO</label><br />
+          <select name="municipio" id="municipio" required>
+            <option value="">Sultepec</option>
+            <option value="2">Ecatepec</option>
+            <option value="3">Nezahualcoyotl</option>
+            <option value="4">Naucalpan</option>
+          </select>
+        </p>
+        <p>
+          <input type="submit" name="enviar" value="enviar" />
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
