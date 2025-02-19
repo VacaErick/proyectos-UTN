@@ -1,0 +1,177 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.contenedor{
+    width: 95%;
+    margin: 5px auto; 
+    background-color: beige;
+    font-family:   'Courier New', Courier, monospace;
+}
+.navegacion{
+    background-color: gray ;
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    height: 100px;
+}
+.logo{ 
+    float: left;
+    width: 20%;
+    height: 100px;
+    background-image: url(../image/logoDeLaRosa.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.nave{
+    width: 60%;
+    float: left;
+    text-align: center;
+    justify-content: center;
+}
+.nave a{
+    display: inline;
+    color: inherit;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 100px;
+}
+.nave a:hover{
+    text-decoration: underline;
+}
+.login{
+    float: left;
+    width: 20%;
+    margin-top: 25px;
+}
+.inicio{
+    float: left;
+    background-color: tomato;
+    color: white;
+    padding: 15px;
+    border: 3px tomato solid;
+    border-radius: 10px;
+    margin-left: 25%;
+}
+.registrar{
+    float: left;
+    background-color: tomato;
+    color: white;
+    padding: 15px;
+    border: 3px tomato solid;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+.cabecera{
+    clear: both;
+    background-color: beige;
+}
+.titpeq{
+    text-align: center;
+}
+.titemp{
+    text-align: center;
+}
+.boton{
+    padding-left: 46.5%;
+}
+.titsocia{
+    width: 100%;
+}
+.vermas{
+    clear: both;
+    background-color: tomato;
+    color: white;
+    padding: 15px;
+    border: 3px tomato solid;
+    border-radius: 10px;
+}
+.tit, .cent, .socia{
+    width: 33.3%;
+    height: 75px;
+    float: left;
+}
+.tit{
+    text-align: left;
+    line-height: 75px;
+}
+.cent{
+    text-align: center;
+    line-height: 75px;
+}
+.socia{
+    background-image: url(../image/redesSociales.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+.principal{
+    width: 100%;
+    clear: both;
+}
+.mainizq{
+    float: left;
+    width: 50%;
+    padding: 20px;
+}
+.mainder{
+    float: left;
+    width: 50%;
+    padding: 20px;
+    border: 4px tomato solid;
+    border-radius: 10px;
+}
+.cuatroelemen{
+    clear: both;
+    height: 150px;
+    text-align: center;
+}
+.uno, .dos, .tres, .cuatro{
+    float: left;
+    width: 24.86%;
+    height: 160px;
+    border: 4px tomato solid;
+    border-radius: 10px;
+    margin: 1px;
+}
+
+.circulo{
+    background-color: beige;
+    clear: both;
+    text-align: center;
+    height: 200px;
+}
+.cirizq, .circen, .cirder{
+    float: left;
+    width: 33.3%;
+    height: 150px;
+    border: 4px tomato solid;
+    border-radius: 100%;
+}
+.abierta{
+    background-color: khaki; 
+    clear: both;
+    text-align: center;
+}
+.abizq, .abcen, .abder{
+    float: left;
+    width: 33.3%;
+}
+.pie{
+    text-align: center;
+    font-size: 1.2em;
+    background-color: goldenrod;
+    clear: both;
+}
+.pie a {
+    display: inline;
+    color: inherit;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 100px;
+}
+
+.pie a:hover {
+    text-decoration: underline;
+}
