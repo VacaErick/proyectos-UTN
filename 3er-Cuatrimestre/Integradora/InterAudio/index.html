@@ -13,10 +13,10 @@
     <title>INTER AUDIO</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #141d56">
+    <nav class="navbar navbar-expand-lg" style="background-color: white">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="images/logo-inverso" alt="bootstrap" width="80" />
+          <img src="images/logo" alt="bootstrap" width="80" />
         </a>
         <button
           class="navbar-toggler"
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul
             class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-            style="--bs-scroll-height: 100px"
+            style="--bs-scroll-height: 80px"
           >
             <li class="nav-item">
               <a
@@ -40,11 +40,24 @@
                 aria-current="page"
                 href="index.html"
                 style="
-                  color: white;
+                  color: #141d56;
                   font-size: x-large;
                   font-family: 'Times New Roman', Times, serif;
                 "
                 >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="navegacion/nosotros.html"
+                style="
+                  color: #141d56;
+                  font-size: x-large;
+                  font-family: 'Times New Roman', Times, serif;
+                "
+                >Nosotros</a
               >
             </li>
             <li class="nav-item dropdown">
@@ -55,23 +68,30 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 style="
-                  color: white;
+                  color: #141d56;
                   font-size: x-large;
                   font-family: 'Times New Roman', Times, serif;
                 "
               >
-                Catalogo
+                Catálogos
               </a>
               <ul
                 class="dropdown-menu"
                 style="text-align: center; color: #141d56; font-size: larger"
               >
                 <li>
-                  <a class="dropdown-item" href="navegacion/catalogo.html"
-                    >INTEC</a
-                  >
+                  <a class="dropdown-item" href="navegacion/catalogoIntec.html"
+                    ><img
+                      src="images/LogoIntec.jpg"
+                      alt="bootstrap"
+                      width="100"
+                  /></a>
                 </li>
-                <li><a class="dropdown-item" href="#">COMAX</a></li>
+                <li>
+                  <a class="dropdown-item" href="navegacion/catalogoComax.html"
+                    ><img src="images/logoCommax" alt="bootstrap" width="100"
+                  /></a>
+                </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -82,7 +102,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 style="
-                  color: white;
+                  color: #141d56;
                   font-size: x-large;
                   font-family: 'Times New Roman', Times, serif;
                 "
@@ -93,15 +113,15 @@
                 class="dropdown-menu"
                 style="text-align: center; color: #141d56; font-size: larger"
               >
-                <li><a class="dropdown-item" href="#">Videoportero</a></li>
-                <li><a class="dropdown-item" href="#">Sistema Híbrido</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Cerca Electrificada</a>
+                <li><a class="dropdown-item" href="navegacion/instalaciones.html">Interfon</a></li>
+                  <li>
+                  <a class="dropdown-item" href="navegacion/instalaciones.html">Videoportero</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"
-                    >Tablas para Sistema de Edificio</a
-                  >
+                  <a class="dropdown-item" href="navegacion/instalaciones.html">Abrepuertas Eléctrico</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="navegacion/instalaciones.html">Cerca Electrificada</a>
                 </li>
               </ul>
             </li>
@@ -113,7 +133,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 style="
-                  color: white;
+                  color: #141d56;
                   font-size: x-large;
                   font-family: 'Times New Roman', Times, serif;
                 "
@@ -124,33 +144,24 @@
                 class="dropdown-menu"
                 style="text-align: center; color: #141d56; font-size: larger"
               >
-                <li><a class="dropdown-item" href="#">Revision</a></li>
-                <li><a class="dropdown-item" href="#">Reparación</a></li>
-                <li><a class="dropdown-item" href="#">Cambio de Equipó</a></li>
+                <li><a class="dropdown-item" href="navegacion/servicios.html">Revision</a></li>
+                <li><a class="dropdown-item" href="navegacion/servicios.html">Reparación</a></li>
+                <li><a class="dropdown-item" href="navegacion/servicios.html">Cambio de Equipo</a></li>
+                <li><a class="dropdown-item" href="navegacion/servicios.html">Mantenimiento</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
               <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                class="nav-link active"
+                aria-current="page"
+                href="navegacion/contacto.html"
                 style="
-                  color: white;
+                  color: #141d56;
                   font-size: x-large;
                   font-family: 'Times New Roman', Times, serif;
                 "
+                >Contacto</a
               >
-                Mantenimiento
-              </a>
-              <ul
-                class="dropdown-menu"
-                style="text-align: center; color: #141d56; font-size: larger"
-              >
-                <li><a class="dropdown-item" href="#">Frecuente</a></li>
-                <li><a class="dropdown-item" href="#">Ocasional</a></li>
-              </ul>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -159,8 +170,13 @@
               type="search"
               placeholder="Search"
               aria-label="Search"
+              style="border: #141d56 solid; color: #141d56"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              style="color: #141d56; border: #141d56 solid"
+            >
               Search
             </button>
           </form>
@@ -227,9 +243,7 @@
             />
             <div class="card-body" style="text-align: center">
               <h5 class="card-title">Interfón para Casa</h5>
-              <p class="card-text">
-                descripción
-              </p>
+              <p class="card-text">descripción</p>
             </div>
             <ul class="list-group list-group-flush" style="text-align: center">
               <li class="list-group-item">An item</li>
