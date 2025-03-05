@@ -1,0 +1,207 @@
+CREATE TABLE MIEMBROS(
+    cod_miem NUMBER(2) CONSTRAINT cod_miem_nn NOT NULL,
+    nom_miem VARCHAR(30) CONSTRAINT nom_miem_nn NOT NULL,
+    dir_miem VARCHAR(40) CONSTRAINT dir_miem_nn NOT NULL,
+    CONSTRAINT cod_miem_pk PRIMARY KEY (cod_miem)
+);
+
+CREATE TABLE PELICULA(
+    clave_peli VARCHAR(4) CONSTRAINT clave_peli_nn NOT NULL,
+    nombre_peli VARCHAR(30) CONSTRAINT nombre_peli_nn NOT NULL,
+    costo_peli NUMBER(4,2) CONSTRAINT costo_peli_nn NOT NULL,
+    CONSTRAINT clave_peli_pk PRIMARY KEY (clave_peli)
+);
+
+CREATE TABLE VIDEOCLUBS(
+    clave_vid VARCHAR(4) CONSTRAINT clave_vid_nn NOT NULL,
+    nom_vid VARCHAR(30) CONSTRAINT nom_vid_nn NOT NULL,
+    dir_vid VARCHAR(30) CONSTRAINT dir_vid_nn NOT NULL,
+    tel_vid VARCHAR(10) CONSTRAINT tel_vid_nn NOT NULL,
+    CONSTRAINT clave_vid_pk PRIMARY KEY (clave_vid)
+);
+
+CREATE TABLE CATEGORIAS(
+    cod_cat VARCHAR(2) CONSTRAINT cod_cat_nn NOT NULL,
+    nom_cat VARCHAR(15) CONSTRAINT nom_cat_nn NOT NULL,
+    CONSTRAINT cod_cat_pk PRIMARY KEY (cod_cat)
+);
+
+CREATE TABLE REGISTROS(
+    clave_vid VARCHAR(4) CONSTRAINT clave_vid_nn1 NOT NULL, 
+    cod_miem NUMBER(2) CONSTRAINT cod_miem_nn1 NOT NULL,
+    clave_peli VARCHAR(4) CONSTRAINT clave_peli_nn1 NOT NULL,
+    CONSTRAINT clave_vid_fk FOREIGN KEY (clave_vid)
+    REFERENCES VIDEOCLUBS(clave_vid),
+    CONSTRAINT cod_miem_fk FOREIGN KEY (cod_miem)
+    REFERENCES MIEMBROS(cod_miem),
+    CONSTRAINT clave_peli_fk FOREIGN KEY (clave_peli)
+    REFERENCES PELICULA(clave_peli),
+    CONSTRAINT super_llave_registros_pk PRIMARY KEY (clave_vid,cod_miem,clave_peli)
+);
+
+CREATE TABLE CARACTERISTICAS(
+    clave_peli VARCHAR(4) CONSTRAINT clave_peli_nn2 NOT NULL,
+    cod_cat VARCHAR(2) CONSTRAINT cod_cat_nn1 NOT NULL,
+    CONSTRAINT clave_peli_fk1 FOREIGN KEY (clave_peli)
+    REFERENCES PELICULA(clave_peli),
+    CONSTRAINT cod_cat_fk FOREIGN KEY (cod_cat)
+    REFERENCES CATEGORIAS(cod_cat),
+    CONSTRAINT super_llave_caracteristicas_pk PRIMARY KEY (clave_peli, cod_cat)
+);
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO MIEMBROS VALUES (01,'Brenda Aguirre','Lago Patzcura 20')
+INSERT INTO MIEMBROS VALUES (02,'Brandon Sanchez','Av Mexico 240');
+INSERT INTO MIEMBROS VALUES (03,'Martha Linares','Zopilote Mojado 10');
+INSERT INTO MIEMBROS VALUES (04,'Hugo Hernandez','Mañanitas 105');
+INSERT INTO MIEMBROS VALUES (05,'Dylan Guerrero','Michoacan 144');
+INSERT INTO MIEMBROS VALUES (06,'Luzmila Churros','Romero Rubio 246');
+INSERT INTO MIEMBROS VALUES (07,'Sherlyn Quiroz','Av Francia 125');
+INSERT INTO MIEMBROS VALUES (08,'Michelle Santiago','Catedral Metropolitana 165');
+INSERT INTO MIEMBROS VALUES (09,'Tulio Zermeño','Cerrada Venus 94');
+INSERT INTO MIEMBROS VALUES (10,'Julian Lopez','Villa Victoria 165');
+INSERT INTO MIEMBROS VALUES (11,'Joaquin Estrada','Farolita 205');
+ 
+INSERT INTO VIDEOCLUBS VALUES ('SA1','Una Gran Aventura','Golondrina 12','54-78-1220');
+INSERT INTO VIDEOCLUBS VALUES ('SA2','Entretenimiento Total','Pichirilo 64','32-00-4181');
+INSERT INTO VIDEOCLUBS VALUES ('SA3','Lo Mejor del Cine','Pancho Lopez 205','56-90-6501');
+INSERT INTO VIDEOCLUBS VALUES ('SA4','VideoMax','Churubusco 23','59-71-0058');
+INSERT INTO VIDEOCLUBS VALUES ('SA5','ServicioExpress','Av Texcoco 200','51-11-0680');
+ 
+ 
+INSERT INTO PELICULAS VALUES ('A001','Lo que el Viento se llevo',45);
+INSERT INTO PELICULAS VALUES ('A002','Duro de Matar ll',30);
+INSERT INTO PELICULAS VALUES ('A003','Dulce Amor',25);
+INSERT INTO PELICULAS VALUES ('B001','La Vida es Bella',40);
+INSERT INTO PELICULAS VALUES ('B002','Jovenes Brujas',25);
+INSERT INTO PELICULAS VALUES ('B003','Vampiros',50);
+INSERT INTO PELICULAS VALUES ('C001','Los Muertos Vivientes',50);
+INSERT INTO PELICULAS VALUES ('C002','Los Otros',50);
+INSERT INTO PELICULAS VALUES ('C003','El Gato con Botas',20);
+INSERT INTO PELICULAS VALUES ('C004','El Rey Leon',20);
+ 
+ 
+INSERT INTO CATEGORIAS VALUES ('Dr','Drama');
+INSERT INTO CATEGORIAS VALUES ('Ac','Accion');
+INSERT INTO CATEGORIAS VALUES ('Co','Comedia');
+INSERT INTO CATEGORIAS VALUES ('Me','Melodrama');
+INSERT INTO CATEGORIAS VALUES ('Su','Suspenso');
+INSERT INTO CATEGORIAS VALUES ('Te','Terror');
+INSERT INTO CATEGORIAS VALUES ('In','Infantil');
+ 
+INSERT INTO REGISTROS VALUES ('SA1',01,'A001');
+INSERT INTO REGISTROS VALUES ('SA2',10,'A002');
+INSERT INTO REGISTROS VALUES ('SA3',11,'A003');
+INSERT INTO REGISTROS VALUES ('SA4',02,'B001');
+INSERT INTO REGISTROS VALUES ('SA1',03,'B002');
+INSERT INTO REGISTROS VALUES ('SA5',06,'B003');
+INSERT INTO REGISTROS VALUES ('SA5',07,'C001');
+INSERT INTO REGISTROS VALUES ('SA2',05,'C002');
+INSERT INTO REGISTROS VALUES ('SA3',05,'C003');
+INSERT INTO REGISTROS VALUES ('SA2',03,'C004');
+ 
+ 
+INSERT INTO CARACTERISTICAS VALUES ('A001','Dr');
+INSERT INTO CARACTERISTICAS VALUES ('A002','Ac');
+INSERT INTO CARACTERISTICAS VALUES ('A003','Co');
+INSERT INTO CARACTERISTICAS VALUES ('B001','Me');
+INSERT INTO CARACTERISTICAS VALUES ('B002','Co');
+INSERT INTO CARACTERISTICAS VALUES ('B003','Su');
+INSERT INTO CARACTERISTICAS VALUES ('C001','Te');
+INSERT INTO CARACTERISTICAS VALUES ('C002','Su');
+INSERT INTO CARACTERISTICAS VALUES ('C003','In');
+INSERT INTO CARACTERISTICAS VALUES ('C004','In');
+
+------------------------------------------------------------------------------------------------------------------------------
+
+SELECT dir_miem FROM MIEMBROS
+WHERE MIEMBROS.dir_miem LIKE 'M%'
+
+SELECT nombre_peli FROM PELICULA
+WHERE ((PELICULA.costo_peli>= 30)AND (PELICULA.costo_peli<= 50))
+
+SELECT SUM(costo_peli)"total_peli"
+FROM PELICULA
+
+SELECT clave_vid, MAX (cod_miem)
+FROM REGISTROS
+WHERE clave_peli='B002' 
+GROUP BY clave_vid
+
+
+
+
+SELECT P.nombre_peli, M.dir_miem
+FROM PELICULA P, MIEMBROS M, REGISTROS R
+WHERE R.cod_miem= M.cod_miem AND R.clave_peli= P.clave_peli
+AND M.nom_miem = 'Dylan Guerrero'
+
+SELECT P.nombre_peli, M.dir_miem
+FROM MIEMBROS M INNER JOIN (PELICULA P INNER JOIN REGISTROS R ON P.clave_peli= R.clave_peli)
+ON M.cod_miem = R.cod_miem
+WHERE M.nom_miem = 'Dylan Guerrero'
+
+
+
+
+SELECT V.tel_vid, V.nom_vid
+FROM VIDEOCLUBS V, REGISTROS R, PELICULA P
+WHERE R.clave_peli= P.clave_peli
+AND R.clave_vid = V.clave_vid
+AND P.nombre_peli = 'Los Otros'
+
+SELECT V.tel_vid, V.nom_vid
+FROM VIDEOCLUBS V INNER JOIN (PELICULA P INNER JOIN REGISTROS R ON P.clave_peli = R.clave_peli) 
+ON V.clave_vid = R.clave_vid
+WHERE P.nombre_peli = 'Los Otros'
+
+
+
+
+SELECT M.nom_miem, M.dir_miem, P.nombre_peli, C.nom_cat, V.nom_vid
+FROM MIEMBROS M, PELICULA P, CATEGORIAS C, VIDEOCLUBS V, REGISTROS R, CARACTERISTICAS CAR
+WHERE M.cod_miem = R.cod_miem
+AND V.clave_vid = R.clave_vid AND P.clave_peli = R.clave_peli 
+AND P.clave_peli = R.clave_peli 
+AND C.cod_cat = CAR.cod_cat
+AND P.clave_peli = CAR.clave_peli
+AND P.costo_peli BETWEEN 35 AND 49 
+ORDER BY (M.nom_miem)
+
+SELECT M.nom_miem, M.dir_miem, P.nombre_peli, C.nom_cat, V.nom_vid
+FROM VIDEOCLUBS V 
+INNER JOIN (PELICULA P INNER JOIN (REGISTROS R INNER JOIN MIEMBROS M ON M.cod_miem = R.cod_miem) ON P.clave_peli = R.clave_peli) ON V.clave_vid = R.clave_vid
+INNER JOIN (CARACTERISTICAS CAR INNER JOIN CATEGORIAS C ON C.cod_cat = CAR.cod_cat) ON P.clave_peli = CAR.clave_peli
+WHERE P.costo_peli BETWEEN 35 AND 49
+ORDER BY M.nom_miem;
+
+
+
+
+SELECT P.nombre_peli, P.costo_peli, M.nom_miem
+FROM MIEMBROS M, PELICULA P, REGISTROS R
+WHERE M.cod_miem = R.cod_miem 
+AND P.clave_peli = R.clave_peli 
+AND P.nombre_peli NOT LIKE 'Lo que el Viento se llevo'
+ORDER BY P.costo_peli
+
+SELECT P.nombre_peli, P.costo_peli, M.nom_miem
+FROM MIEMBROS M INNER JOIN (PELICULA P INNER JOIN REGISTROS R ON P.clave_peli=R.clave_peli) ON M.cod_miem=R.cod_miem
+WHERE P.nombre_peli NOT LIKE 'Lo que el Viento se llevo'
+ORDER BY P.costo_peli
+
+
+
+
+SELECT M.dir_miem, V.nom_vid
+FROM MIEMBROS M, PELICULA P, REGISTROS R, VIDEOCLUBS V
+WHERE M.cod_miem=R.cod_miem
+AND P.clave_peli=R.clave_peli
+AND V.clave_vid=R.clave_vid
+AND P.nombre_peli LIKE 'L%'
+
+SELECT M.dir_miem, V.nom_vid
+FROM MIEMBROS M INNER JOIN (PELICULA P INNER JOIN (VIDEOCLUBS V INNER JOIN REGISTROS R ON V.clave_vid=R.clave_vid) ON P.clave_peli=R.clave_peli) ON M.cod_miem=R.cod_miem
+WHERE P.nombre_peli LIKE 'L%'
+
