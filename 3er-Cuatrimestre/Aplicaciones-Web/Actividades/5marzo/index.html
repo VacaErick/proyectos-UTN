@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.7.2/css/all.css"
+    />
+    <title>Examen</title>
+  </head>
+  <body>
+    <nav>
+      <ul class="nav" style="padding-top: 25px; font-size: larger">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Acerca</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Foro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Comprar</a>
+        </li>
+        <li class="nav-item">
+          <nav aria-label="breadcrumb" style="padding: 10px">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Login</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Registro
+              </li>
+            </ol>
+          </nav>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            ><div
+              class="btn-group"
+              role="group"
+              aria-label="Basic mixed styles example"
+            >
+              <button type="button" class="btn btn-danger">Left</button>
+              <button type="button" class="btn btn-warning">Middle</button>
+              <button type="button" class="btn btn-success">Right</button>
+            </div></a
+          >
+        </li>
+      </ul>
+      <hr />
+      <nav class="navbar navbar-expand-lg" style="background-color: white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo" alt="bootstrap" width="80" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul
+              class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+              style="--bs-scroll-height: 80px"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="index.html"
+                  style="
+                    color: #141d56;
+                    font-size: x-large;
+                    font-family: 'Times New Roman', Times, serif;
+                  "
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="
+                    color: #141d56;
+                    font-size: x-large;
+                    font-family: 'Times New Roman', Times, serif;
+                  "
+                >
+                  Paginas
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  style="text-align: center; color: #141d56; font-size: larger"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/catalogoIntec.html"
+                      ><img
+                        src="images/LogoIntec.jpg"
+                        alt="bootstrap"
+                        width="100"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/catalogoComax.html"
+                      ><img src="images/logoCommax" alt="bootstrap" width="100"
+                    /></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="
+                    color: #141d56;
+                    font-size: x-large;
+                    font-family: 'Times New Roman', Times, serif;
+                  "
+                >
+                  Tecnologías
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  style="text-align: center; color: #141d56; font-size: larger"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/instalaciones.html"
+                      >Interfon</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/instalaciones.html"
+                      >Videoportero</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/instalaciones.html"
+                      >Abrepuertas Eléctrico</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="navegacion/instalaciones.html"
+                      >Cerca Electrificada</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="
+                    color: #141d56;
+                    font-size: x-large;
+                    font-family: 'Times New Roman', Times, serif;
+                  "
+                >
+                  Vida
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  style="text-align: center; color: #141d56; font-size: larger"
+                >
+                  <li>
+                    <a class="dropdown-item" href="navegacion/servicios.html"
+                      >Revision</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="navegacion/servicios.html"
+                      >Reparación</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="navegacion/servicios.html"
+                      >Cambio de Equipo</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="navegacion/servicios.html"
+                      >Mantenimiento</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style="border: #141d56 solid; color: #141d56"
+              />
+              <button
+                class="btn btn-outline-success"
+                type="submit"
+                style="color: #141d56; border: #141d56 solid"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </nav>
+    <br />
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card text-bg-dark">
+            <img
+              src="images/videportero-casa-intercom.jpg"
+              class="card-img"
+              alt="..."
+            />
+            <div class="card-img-overlay">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-primary mb-3" style="max-width: 40rem">
+            <div class="card text-bg-dark">
+              <img
+                src="images/interfon-edificio.jpg"
+                class="card-img"
+                alt="..."
+              />
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text"><small>Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="max-width: 40rem">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class="col">
+                <div class="card text-bg-dark">
+                  <img
+                    src="images/intercomunicacion.jpg"
+                    class="card-img"
+                    alt="..."
+                  />
+                  <div class="card-img-overlay">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p class="card-text">
+                      <small>Last updated 3 mins ago</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card text-bg-dark">
+                  <img src="images/interfon-edificio.jpg" class="card-img" alt="..." />
+                  <div class="card-img-overlay">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer.
+                    </p>
+                    <p class="card-text">
+                      <small>Last updated 3 mins ago</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card">
+              <img src="images/productos.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Titulo</h5>
+                <p class="card-text">
+                  subtitulo <br />
+                  <img src="images/LogoIntec.jpg" width="40" /> VACA 3/5/2025
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="images/productos.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Titulo</h5>
+                <p class="card-text">
+                  subtitulo <br />
+                  <img src="images/LogoIntec.jpg" width="40" /> VACA 3/5/2025
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div
+          id="carouselExampleInterval"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/intercomunicacion.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-edificio.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-para-casa.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/abrepuertas.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/Cerca.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-edificio.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-para-casa.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/abrepuertas.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-edificio.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-edificio.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/interfon-para-casa.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img
+                      src="images/abrepuertas.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <footer style="background-color: #141d56; color: white">
+      <p class="text-center">
+        &copy;2025 Aplicación desarrollada con SpringFramework, MariaDB,
+        bootstrap | Autor:Erick Yael Vaca Gorostieta
+      </p>
+    </footer>
+  </body>
+</html>
