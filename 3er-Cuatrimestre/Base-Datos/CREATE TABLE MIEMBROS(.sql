@@ -1,18 +1,22 @@
-commit;
+   set serveroutput on
+VARIABLE g_prom_partres NUMBER
+VARIABLE g_prom_paruno NUMBER
 
-CREATE TABLE reclusorios(
-  cod_ce VARCHAR2(2) CONSTRAINT cod_ce_nn NOT NULL,
-  nom_ce VARCHAR2(50) CONSTRAINT nom_ce_nn NOT NULL,
-  subcidio NUMBER(10) CONSTRAINT subcidio_nn NOT NULL,
-  nom_edo VARCHAR2(50) CONSTRAINT nom_edo_nn NOT NULL,
-  clave_cede NUMBER(2) CONSTRAINT clave_cede_nn NOT NULL,
-  CONSTRAINT cod_ce_pk PRIMARY KEY(cod_ce)
-)
+begin
+   select avg(parcial_tres),
+          avg(parcial_uno)
+     into
+      :g_prom_partres,
+      :g_prom_paruno
+     from boletas
+    where mat_alum = 20174004;
+   dbms_output.put_line('El promedio del parcial uno es: ' || to_char(:g_prom_paruno));
+   dbms_output.put_line('El promedio del parcial tres es: ' || to_char(:g_prom_partres));
+end;
 
-INSERT INTO reclusorios VALUES('S1','Cerezos',1414620,'Sinaloa',10);
-INSERT INTO reclusorios VALUES('G2','Alto Cumbres',914450,'Guanajuato',20);
-INSERT INTO reclusorios VALUES('M3','Zitacuaro Centro',823123,'Michoacán',30);
-INSERT INTO reclusorios VALUES('M4','Apatzingo',838729,'Michoacán',10);
-INSERT INTO reclusorios VALUES('G5','Norte Cerro',910643,'Guanajuato',20);
-INSERT INTO reclusorios VALUES('S6','Sureste',1915200,'Sinaloa',30);
-INSERT INTO reclusorios VALUES('m7','Lázaro Cárdenas',905100,'Michoacán',10);
+
+set serveroutput ON
+
+declare
+v_mat_alum boletas.
+  v_segundo_parcial boletas.segundo_parcial%type;

@@ -1,0 +1,343 @@
+create table productos (
+   num_prod  numeric(6)
+      constraint num_prod_nn not null,
+   nomb_prod varchar2(20)
+      constraint nomb_prod_nn not null,
+   prec_unit numeric(4,2)
+      constraint prec_unit_nn not null
+      constraint prec_unit_ck check ( prec_unit > 0 ),
+   constraint num_prod_pk primary key ( num_prod )
+)
+
+create table oficinas (
+   num_ofic      numeric(4)
+      constraint num_ofic_nn not null,
+   telefono_ofic varchar2(12)
+      constraint telefono_ofic_nn not null,
+   constraint telefono_ofic_uk unique ( telefono_ofic ),
+   tamaño_ofi    numeric(3)
+      constraint tamaño_ofi_nn not null,
+   constraint num_ofic_pk primary key ( num_ofic )
+)
+
+create table vendedores (
+   num_vend numeric(3)
+      constraint num_vend_nn not null,
+   nomb_ven varchar2(20)
+      constraint nomb_ven_nn not null,
+   porctcom numeric(2)
+      constraint porctcom_ck check ( porctcom >= 0
+         and porctcom <= 100 ),
+   año_cont numeric(4),
+   num_ofic numeric(4)
+      constraint num_ofic_nn1 not null,
+   constraint num_vend_pk primary key ( num_vend ),
+   constraint num_ofic_fk foreign key ( num_ofic )
+      references oficinas ( num_ofic )
+)
+
+create table ventas (
+   num_vend      numeric(3)
+      constraint num_vend_nn1 not null,
+   num_prod      numeric(6)
+      constraint num_prod_nn1 not null,
+   cantidad_vent numeric
+      constraint cantidad_vent_nn not null
+      constraint cantidad_vent_ck check ( cantidad_vent > 0 ),
+   constraint num_vend_fk foreign key ( num_vend )
+      references vendedores ( num_vend ),
+   constraint num_prod_fk foreign key ( num_prod )
+      references productos ( num_prod ),
+   constraint super_llave_ventas primary key ( num_vend,
+                                               num_prod )
+)
+
+create table clientes (
+   num_cli    numeric(4)
+      constraint num_cli_nn not null,
+   nomb_cli   varchar2(45)
+      constraint nomb_cli_nn not null,
+   num_vend   numeric(3)
+      constraint num_vend_nn2 not null,
+   ciudad_doc varchar2(30)
+      constraint ciudad_doc_nn not null,
+   constraint num_cli_pk primary key ( num_cli ),
+   constraint num_vend_fk1 foreign key ( num_vend )
+      references vendedores ( num_vend )
+)
+
+create table empleados_del_cliente (
+   num_cli   numeric(4)
+      constraint num_cli_nn1 not null,
+   num_empl  varchar2(25)
+      constraint num_empl_nn not null,
+   nomb_empl varchar2(25)
+      constraint nomb_empl_nn not null,
+   puesto    varchar2(40)
+      constraint puesto_nn not null,
+   constraint num_cli_fk foreign key ( num_cli )
+      references clientes ( num_cli ),
+   constraint super_llave_empleados primary key ( num_cli,
+                                                  num_empl )
+)
+
+insert into productos values ( 16386,
+                               'Llave',
+                               12.95 );
+insert into productos values ( 19440,
+                               'Martillo',
+                               17.50 );
+insert into productos values ( 21765,
+                               'Broca',
+                               32.99 );
+insert into productos values ( 24013,
+                               'Sierra',
+                               26.25 );
+insert into productos values ( 26722,
+                               'Pinzas',
+                               11.50 );
+
+insert into oficinas values ( 1253,
+                              '901-555-4276',
+                              120 );
+insert into oficinas values ( 1227,
+                              '901-555-0364',
+                              100 );
+insert into oficinas values ( 1284,
+                              '901-555-7335',
+                              120 );
+insert into oficinas values ( 1209,
+                              '901-555-3108',
+                              95 );
+
+insert into vendedores values ( 137,
+                                'Baker',
+                                10,
+                                1995,
+                                1284 );
+insert into vendedores values ( 186,
+                                'Admas',
+                                15,
+                                2001,
+                                1253 );
+insert into vendedores values ( 204,
+                                'Dickens',
+                                10,
+                                1998,
+                                1209 );
+insert into vendedores values ( 361,
+                                'Carlyle',
+                                20,
+                                2001,
+                                1227 );
+
+insert into ventas values ( 137,
+                            19440,
+                            473 );
+insert into ventas values ( 137,
+                            24013,
+                            170 );
+insert into ventas values ( 137,
+                            26722,
+                            688 );
+insert into ventas values ( 186,
+                            16386,
+                            1745 );
+insert into ventas values ( 186,
+                            19440,
+                            2529 );
+insert into ventas values ( 186,
+                            21765,
+                            1962 );
+insert into ventas values ( 186,
+                            24013,
+                            3071 );
+insert into ventas values ( 204,
+                            21765,
+                            809 );
+insert into ventas values ( 204,
+                            26722,
+                            734 );
+insert into ventas values ( 361,
+                            16386,
+                            3729 );
+insert into ventas values ( 361,
+                            21765,
+                            3110 );
+insert into ventas values ( 361,
+                            26722,
+                            2738 );
+
+insert into clientes values ( 0121,
+                              'Main ST. Hardware',
+                              137,
+                              'Nueva York' );
+insert into clientes values ( 0839,
+                              'Jane’s Stores',
+                              186,
+                              'Chicago' );
+insert into clientes values ( 0933,
+                              'ABC Home Stores',
+                              137,
+                              'Los Angeles' );
+insert into clientes values ( 1047,
+                              'Acme Hardware Store',
+                              137,
+                              'Los Angeles' );
+insert into clientes values ( 1525,
+                              'Fred’s Tool Stores',
+                              361,
+                              'Atlanta' );
+insert into clientes values ( 1700,
+                              'XYZ Stores',
+                              361,
+                              'Washington' );
+insert into clientes values ( 1826,
+                              'City Hardware',
+                              137,
+                              'Nueva York' );
+insert into clientes values ( 2198,
+                              'Western Hardware',
+                              204,
+                              'Nueva York' );
+insert into clientes values ( 2267,
+                              'Central Stores',
+                              186,
+                              'Nueva York' );
+
+insert into empleados_del_cliente values ( 0121,
+                                           '27498',
+                                           'Smith',
+                                           'Copropietario' );
+insert into empleados_del_cliente values ( 0121,
+                                           '30441',
+                                           'Garcia',
+                                           'Copropietario' );
+insert into empleados_del_cliente values ( 0933,
+                                           '25270',
+                                           'Chen',
+                                           'VP de ventas' );
+insert into empleados_del_cliente values ( 0933,
+                                           '30441',
+                                           'Levy',
+                                           'Gerente de ventas' );
+insert into empleados_del_cliente values ( 0933,
+                                           '48285',
+                                           'Morton',
+                                           'Presidente' );
+insert into empleados_del_cliente values ( 1525,
+                                           '33779',
+                                           'Baker',
+                                           'Gerente de ventas' );
+insert into empleados_del_cliente values ( 2198,
+                                           '27470',
+                                           'Smith',
+                                           'Presidente' );
+insert into empleados_del_cliente values ( 2198,
+                                           '30441',
+                                           'Jones',
+                                           'VP de ventas' );
+insert into empleados_del_cliente values ( 2198,
+                                           '33779',
+                                           'Garcia',
+                                           'VP de personal' );
+insert into empleados_del_cliente values ( 2198,
+                                           '35268',
+                                           'Kaplan',
+                                           'Contador en Jefe' );
+
+select *
+  from clientes c
+ where ( ( c.ciudad_doc = 'Atlanta' )
+    or ( c.ciudad_doc = 'Chicago' )
+    or ( c.ciudad_doc = 'Washington' ) );
+
+select *
+  from clientes c
+ where c.nomb_cli like 'A%';
+
+select *
+  from clientes c
+ where c.nomb_cli like '_a%';
+
+select distinct c.ciudad_doc
+  from clientes c;
+
+select avg(cantidad_vent)
+  from ventas v
+ where v.num_vend = 137;
+
+select sum(cantidad_vent)
+  from ventas v
+ where v.num_vend = 137;
+
+select max(cantidad_vent)
+  from ventas v
+ where v.num_prod = 21765;
+
+select min(cantidad_vent)
+  from ventas v
+ where v.num_prod = 21765;
+
+select count(*)
+  from ventas v
+ where v.num_prod = 21765;
+
+select vend.nomb_ven,
+       sum(vent.cantidad_vent)
+  from vendedores vend
+ inner join ventas vent
+on vend.num_vend = vent.num_vend
+ group by vend.nomb_ven;
+
+select vend.nomb_ven,
+       sum(vent.cantidad_vent)
+  from vendedores vend
+ inner join ventas vent
+on vend.num_vend = vent.num_vend
+ where vend.num_vend >= 150
+ group by vend.nomb_ven;
+
+select vend.nomb_ven,
+       sum(vent.cantidad_vent)
+  from vendedores vend
+ inner join ventas vent
+on vend.num_vend = vent.num_vend
+ where vend.num_vend >= 150
+ group by vend.nomb_ven
+having sum(vent.cantidad_vent) > 5000;
+
+select vend.nomb_ven
+  from vendedores vend
+ inner join clientes c
+on vend.num_vend = c.num_vend
+ where c.num_cli = 1525;
+
+select p.nomb_prod
+  from vendedores vend
+ inner join (
+        productos p
+    inner join ventas vent
+   on p.num_prod = vent.num_prod
+)
+on vend.num_vend = vent.num_vend
+ where ( ( vend.nomb_ven = 'Admas' )
+   and ( vent.cantidad_vent > 2000 ) );
+
+select nomb_ven
+  from vendedores
+ where num_vend = (
+   select num_vend
+     from clientes
+    where num_cli = 1525
+);
+
+select nomb_ven,
+       porctcom
+  from vendedores
+ where porctcom = (
+      select min(porctcom)
+        from vendedores
+       where num_vend > 200
+   )
+   and num_vend > 200;

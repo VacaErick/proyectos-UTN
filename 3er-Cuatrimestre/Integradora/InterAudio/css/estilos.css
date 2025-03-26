@@ -1,0 +1,438 @@
+:root {
+    --color-primario: #141d56;
+    --color-secundario: #2a3a8a;
+    --color-accento: #f0f0f0;
+    --transition-base: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navegación mejorada */
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 0.75rem 1.25rem !important;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00bfff, #1e90ff);
+    transition: width 0.4s ease-in-out;
+}
+
+.nav-link:hover {
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dropdown mejorado */
+.dropdown-menu {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(20, 29, 86, 0.95) !important;
+    backdrop-filter: blur(12px);
+    min-width: 240px;
+}
+
+.dropdown-item {
+    position: relative;
+    transition: var(--transition-base);
+    padding: 0.75rem 1.5rem;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding-left: 2rem !important;
+    border-left: 3px solid #00bfff;
+}
+
+/* Botón de contacto mejorado */
+.btn-contact {
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 2rem !important;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-base);
+}
+
+.btn-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent);
+    transition: 0.5s;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3);
+}
+
+.btn-contact:hover::before {
+    left: 100%;
+}
+
+/* Pasos de trabajo mejorados */
+.step-card {
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.step-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-primario);
+    opacity: 0.08;
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    line-height: 1;
+    transition: var(--transition-base);
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-card:hover .step-number {
+    opacity: 0.12;
+}
+
+/* Galería mejorada */
+.thumbnail {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    transform: scale(1.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.thumbnail.active {
+    border-color: var(--color-secundario);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.main-img {
+    height: 480px;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Testimonios mejorados */
+.testimonio-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transition-base);
+}
+
+.testimonio-card:hover {
+    transform: translateY(-5px);
+}
+
+/* CTA mejorado */
+.cta-box {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border: none;
+    transition: var(--transition-base);
+    overflow: hidden;
+    position: relative;
+}
+
+.cta-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.cta-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(20, 29, 86, 0.3);
+}
+
+.cta-box:hover::after {
+    left: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-link {
+        padding: 0.5rem !important;
+        font-size: 1rem;
+    }
+
+    .main-img {
+        height: 300px;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 50px;
+    }
+
+    .step-card {
+        padding: 1.5rem;
+    }
+
+    .step-number {
+        font-size: 3rem;
+    }
+}
+/* Servicios */
+.servicio-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.numero-proceso {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primario);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -40px auto 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.proceso-card {
+    border: 2px solid var(--color-primario);
+    background: white;
+    min-height: 200px;
+}
+
+.cta-servicios {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    transition: transform 0.3s;
+}
+
+.cta-servicios:hover {
+    transform: scale(1.02);
+}
+.modal-content {
+    border: 2px solid var(--color-primario);
+}
+
+.modal-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#formServicio textarea {
+    min-height: 120px;
+}
+
+.instalacion-card {
+    transition: transform 0.3s;
+    border: none;
+}
+
+.instalacion-card:hover {
+    transform: translateY(-5px);
+}
+
+.instalacion-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+#formInstalacion .input-group {
+    gap: 10px;
+}
+
+#formInstalacion .input-group select {
+    flex: 0 0 180px;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(20, 29, 86, 0.15);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-primario) !important;
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-pills .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(20, 29, 86, 0.08),
+            transparent);
+    transition: 0.5s;
+}
+
+.nav-pills .nav-link:hover {
+    border-color: rgba(20, 29, 86, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.nav-pills .nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-pills .nav-link.active {
+    background: var(--color-primario);
+    color: white !important;
+    border-color: var(--color-primario);
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 3px 0 15px rgba(20, 29, 86, 0.2);
+}
+
+.nav-pills .nav-link.active::after {
+    content: '';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--color-primario);
+}
+
+/* Resto de estilos se mantienen igual */
+.list-styled {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.list-styled li::before {
+    content: "▹";
+    color: var(--color-primario);
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+.tab-content {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(20, 29, 86, 0.1);
+}
+
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.price-range-slider {
+    width: 100%;
+}
+
+.pagination .page-link {
+    color: #141d56;
+}
+
+.pagination .active .page-link {
+    background: #141d56;
+    border-color: #141d56;
+}
+
+/* Añadir a estilos.css */
+.product-gallery .img-thumbnail {
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.product-gallery .img-thumbnail:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+.product-gallery .img-thumbnail.active {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.product-details .rating {
+    font-size: 0.9em;
+}
+
+.product-specs li {
+    padding: 0.3rem 0;
+}
+
+.related-products h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
