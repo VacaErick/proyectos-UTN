@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Universitario</title>
+    <style>
+      
+      
+      body {
+        background-color: burlywood;
+        font-family: Arial, sans-serif;
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        color: #333;
+      }
+      
+      .FORMULARIO {
+        background-color: beige;
+        border: 1.7px solid black;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 100%;
+      }
+      
+      legend {
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 0 10px;
+        color: #5a3921;
+      }
+      
+      .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      
+      label {
+        width: 180px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      
+      input[type="text"],
+      input[type="date"],
+      input[type="tel"],
+      input[type="email"] {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        min-width: 200px;
+      }
+      
+      .radio-group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-left: 190px;
+      }
+      
+      .radio-option {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+      }
+      
+      .radio-option input {
+        margin-right: 5px;
+      }
+      
+      input[type="submit"] {
+        background-color: #8B4513;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #A0522D;
+      }
+      
+      h1 {
+        text-align: center;
+        color: #5a3921;
+        margin-bottom: 20px;
+      }
+      
+      @media (max-width: 768px) {
+        body {
+          width: 95%;
+          padding: 10px;
+        }
+        
+        label {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+        
+        .radio-group {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FORMULARIO 51</h1>
+    
+    <form action="/enviar" method="post">
+      <fieldset class="FORMULARIO">
+        <legend>DATOS PERSONALES</legend>
+        <div class="form-group">
+          <label for="nombre">NOMBRE COMPLETO:</label>
+          <input type="text" id="nombre" name="nombreIns" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="curp">CURP:</label>
+          <input type="text" id="curp" name="curp" />
+        </div>
+        
+        <div class="form-group">
+          <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
+          <input type="date" id="fechaNacimiento" name="fechaNacimiento" />
+        </div>
+        
+        <div class="form-group">
+          <label for="genero">GÉNERO:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="masculino" name="genero" value="masculino" />
+              <label for="masculino">Masculino</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="femenino" name="genero" value="femenino" />
+              <label for="femenino">Femenino</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="otro" name="genero" value="otro" />
+              <label for="otro">Otro</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefono">TELÉFONO:</label>
+          <input type="tel" id="telefono" name="telefono" />
+        </div>
+        
+        <div class="form-group">
+          <label for="correo">CORREO:</label>
+          <input type="email" id="correo" name="correo" />
+        </div>
+        
+        <div class="form-group">
+          <label for="direccion">DIRECCIÓN:</label>
+          <input type="text" id="direccion" name="direccion" />
+        </div>
+        
+        <input type="submit" value="ENVIAR" />
+      </fieldset>
+    </form>
+
+    <form action="/enviar" method="post">
+      <fieldset class="FORMULARIO">
+        <legend>DATOS PREPARATORIA</legend>
+        <div class="form-group">
+          <label for="nombrePre">NOMBRE PREPARATORIA:</label>
+          <input type="text" id="nombrePre" name="nombrePre" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="carrera">CARRERA:</label>
+          <input type="text" id="carrera" name="carrera" />
+        </div>
+        
+        <div class="form-group">
+          <label for="fechaIngresoPre">FECHA DE INGRESO:</label>
+          <input type="date" id="fechaIngresoPre" name="fechaIngresoPre" />
+        </div>
+        
+        <div class="form-group">
+          <label for="turno">TURNO:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="matutino" name="turno" value="matutino" />
+              <label for="matutino">Matutino</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="vespertino" name="turno" value="vespertino" />
+              <label for="vespertino">Vespertino</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefonoPre">TELÉFONO PREPARATORIA:</label>
+          <input type="tel" id="telefonoPre" name="telefonoPre" />
+        </div>
+        
+        <div class="form-group">
+          <label for="correoPre">CORREO PREPARATORIA:</label>
+          <input type="email" id="correoPre" name="correoPre" />
+        </div>
+        
+        <div class="form-group">
+          <label for="direccionPre">DIRECCIÓN PREPARATORIA:</label>
+          <input type="text" id="direccionPre" name="direccionPre" />
+        </div>
+        
+        <input type="submit" value="ENVIAR" />
+      </fieldset>
+    </form>
+
+    <form action="/enviar" method="post">
+      <fieldset class="FORMULARIO">
+        <legend>DATOS UNIVERSIDAD</legend>
+        <div class="form-group">
+          <label for="nombreUni">NOMBRE UNIVERSIDAD:</label>
+          <input type="text" id="nombreUni" name="nombreUni" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="carreraUni">CARRERA UNIVERSITARIA:</label>
+          <input type="text" id="carreraUni" name="carreraUni" />
+        </div>
+        
+        <div class="form-group">
+          <label for="fechaIngresoUni">FECHA DE INGRESO:</label>
+          <input type="date" id="fechaIngresoUni" name="fechaIngresoUni" />
+        </div>
+        
+        <div class="form-group">
+          <label for="semestre">SEMESTRE:</label>
+          <input type="text" id="semestre" name="semestre" />
+        </div>
+        
+        <div class="form-group">
+          <label for="matricula">MATRÍCULA:</label>
+          <input type="text" id="matricula" name="matricula" />
+        </div>
+        
+        <div class="form-group">
+          <label for="turnoUni">TURNO:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="matutinoUni" name="turnoUni" value="matutino" />
+              <label for="matutinoUni">Matutino</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="vespertinoUni" name="turnoUni" value="vespertino" />
+              <label for="vespertinoUni">Vespertino</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="nocturnoUni" name="turnoUni" value="nocturno" />
+              <label for="nocturnoUni">Nocturno</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="telefonoUni">TELÉFONO UNIVERSIDAD:</label>
+          <input type="tel" id="telefonoUni" name="telefonoUni" />
+        </div>
+        
+        <div class="form-group">
+          <label for="correoUni">CORREO UNIVERSIDAD:</label>
+          <input type="email" id="correoUni" name="correoUni" />
+        </div>
+        
+        <div class="form-group">
+          <label for="direccionUni">DIRECCIÓN UNIVERSIDAD:</label>
+          <input type="text" id="direccionUni" name="direccionUni" />
+        </div>
+        
+        <input type="submit" value="ENVIAR" />
+      </fieldset>
+    </form>
+  </body>
+</html>

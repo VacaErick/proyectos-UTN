@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Registro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        padding: 40px 30px;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .form-header h1 {
+        color: #2575fc;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: #666;
+        font-size: 16px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #444;
+        font-size: 14px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e1e5ee;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+
+      input:focus {
+        border-color: #2575fc;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+      }
+
+      .date-input {
+        position: relative;
+      }
+
+      .date-input i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #777;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        background: #2575fc;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      button:hover {
+        background: #1c68e8;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+      }
+
+      .success-message {
+        background: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 500;
+      }
+
+      .success-message.show {
+        display: flex;
+        animation: fadeInOut 3s forwards;
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .firebase-info {
+        background: #f8f9fa;
+        border-left: 4px solid #2575fc;
+        padding: 15px;
+        border-radius: 0 10px 10px 0;
+        margin-top: 30px;
+        font-size: 14px;
+      }
+
+      .firebase-info h3 {
+        color: #2575fc;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .input-hint {
+        font-size: 13px;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .error-message {
+        color: #e74c3c;
+        font-size: 13px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px 20px;
+          border-radius: 12px;
+        }
+
+        .form-header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-header">
+        <h1>Formulario de Registro</h1>
+        <p>Completa tus datos para registrarte</p>
+      </div>
+
+      <form id="registroForm">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Ingresa tu nombre"
+            required
+          />
+          <div class="error-message" id="nombreError">
+            Por favor ingresa tu nombre
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidoPaterno">Apellido paterno:</label>
+          <input
+            type="text"
+            id="apellidoPaterno"
+            placeholder="Ingresa tu apellido paterno"
+            required
+          />
+          <div class="error-message" id="apellidoPaternoError">
+            Por favor ingresa tu apellido paterno
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidoMaterno">Apellido materno:</label>
+          <input
+            type="text"
+            id="apellidoMaterno"
+            placeholder="Ingresa tu apellido materno"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de nacimiento:</label>
+          <div class="date-input">
+            <input
+              type="text"
+              id="fechaNacimiento"
+              placeholder="dd/mm/aaaa"
+              required
+            />
+            <i class="fas fa-calendar"></i>
+          </div>
+          <div class="input-hint">Formato: día/mes/año (ej. 15/05/1990)</div>
+          <div class="error-message" id="fechaError">
+            Por favor ingresa una fecha válida
+          </div>
+        </div>
+
+        <button type="submit" id="guardarBtn">
+          <i class="fas fa-save"></i> Guardar
+        </button>
+      </form>
+
+      <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i> Guardado correctamente
+      </div>
+
+      <div class="firebase-info">
+        <h3>Conectado a Firebase</h3>
+        <p>Datos almacenados en Firestore - Project ID: practica1-19cd5</p>
+      </div>
+    </div>
+
+    <script>
+      // Configuración de Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCo2zrY779H18_NZKkZqcwhFeCMkTPjpEg",
+        authDomain: "practica1-19cd5.firebaseapp.com",
+        projectId: "practica1-19cd5",
+        storageBucket: "practica1-19cd5.appspot.com",
+        messagingSenderId: "921705854883",
+        appId: "1:921705854883:web:4469060c0192ecd2a98c16",
+        measurementId: "G-X05YV8VCWW",
+      };
+
+      // Inicializar Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      // Referencias a elementos del DOM
+      const registroForm = document.getElementById("registroForm");
+      const successMessage = document.getElementById("successMessage");
+      const guardarBtn = document.getElementById("guardarBtn");
+      const nombreInput = document.getElementById("nombre");
+      const apellidoPaternoInput = document.getElementById("apellidoPaterno");
+      const fechaNacimientoInput = document.getElementById("fechaNacimiento");
+      const nombreError = document.getElementById("nombreError");
+      const apellidoPaternoError = document.getElementById(
+        "apellidoPaternoError"
+      );
+      const fechaError = document.getElementById("fechaError");
+
+      // Función para validar fecha
+      function validarFecha(fecha) {
+        const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+        if (!regex.test(fecha)) return false;
+
+        const partes = fecha.split("/");
+        const dia = parseInt(partes[0], 10);
+        const mes = parseInt(partes[1], 10) - 1;
+        const año = parseInt(partes[2], 10);
+
+        const fechaObj = new Date(año, mes, dia);
+
+        return (
+          fechaObj.getFullYear() === año &&
+          fechaObj.getMonth() === mes &&
+          fechaObj.getDate() === dia
+        );
+      }
+
+      // Escuchar el envío del formulario
+      registroForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Obtener valores
+        const nombre = nombreInput.value.trim();
+        const apellidoPaterno = apellidoPaternoInput.value.trim();
+        const apellidoMaterno = document
+          .getElementById("apellidoMaterno")
+          .value.trim();
+        const fechaNacimiento = fechaNacimientoInput.value.trim();
+
+        // Resetear mensajes de error
+        nombreError.style.display = "none";
+        apellidoPaternoError.style.display = "none";
+        fechaError.style.display = "none";
+
+        // Validar campos
+        let isValid = true;
+
+        if (!nombre) {
+          nombreError.style.display = "block";
+          isValid = false;
+        }
+
+        if (!apellidoPaterno) {
+          apellidoPaternoError.style.display = "block";
+          isValid = false;
+        }
+
+        if (!fechaNacimiento) {
+          fechaError.textContent = "Por favor ingresa tu fecha de nacimiento";
+          fechaError.style.display = "block";
+          isValid = false;
+        } else if (!validarFecha(fechaNacimiento)) {
+          fechaError.textContent =
+            "Por favor ingresa una fecha válida (dd/mm/aaaa)";
+          fechaError.style.display = "block";
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Cambiar estado del botón
+        guardarBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+        guardarBtn.disabled = true;
+
+        // Guardar en Firestore
+        db.collection("usuarios")
+          .add({
+            nombre: nombre,
+            apellidoPaterno: apellidoPaterno,
+            apellidoMaterno: apellidoMaterno,
+            fechaNacimiento: fechaNacimiento,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          })
+          .then(() => {
+            // Mostrar mensaje de éxito
+            successMessage.classList.add("show");
+
+            // Reiniciar formulario
+            registroForm.reset();
+
+            // Restaurar botón después de 3 segundos
+            setTimeout(() => {
+              guardarBtn.innerHTML = '<i class="fas fa-save"></i> Guardar';
+              guardarBtn.disabled = false;
+            }, 3000);
+
+            // Ocultar mensaje después de 3 segundos
+            setTimeout(() => {
+              successMessage.classList.remove("show");
+            }, 3000);
+          })
+          .catch((error) => {
+            console.error("Error al guardar: ", error);
+            alert("Ocurrió un error al guardar. Por favor intenta de nuevo.");
+
+            // Restaurar botón
+            guardarBtn.innerHTML = '<i class="fas fa-save"></i> Guardar';
+            guardarBtn.disabled = false;
+          });
+      });
+
+      // Formateador automático de fecha
+      fechaNacimientoInput.addEventListener("input", function (e) {
+        let input = e.target.value;
+
+        // Permitir solo dígitos y barras
+        let cleaned = input.replace(/[^\d\/]/g, "");
+
+        // Limitar a 10 caracteres
+        if (cleaned.length > 10) {
+          cleaned = cleaned.substring(0, 10);
+        }
+
+        // Insertar barras automáticamente
+        let formatted = "";
+        for (let i = 0; i < cleaned.length; i++) {
+          if (i === 2 || i === 5) {
+            if (cleaned[i] !== "/") {
+              formatted += "/";
+            }
+          }
+          formatted += cleaned[i];
+        }
+
+        e.target.value = formatted;
+      });
+
+      // Validación en tiempo real
+      nombreInput.addEventListener("input", function () {
+        if (nombreInput.value.trim()) {
+          nombreError.style.display = "none";
+        }
+      });
+
+      apellidoPaternoInput.addEventListener("input", function () {
+        if (apellidoPaternoInput.value.trim()) {
+          apellidoPaternoError.style.display = "none";
+        }
+      });
+
+      fechaNacimientoInput.addEventListener("input", function () {
+        if (fechaNacimientoInput.value.trim()) {
+          fechaError.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

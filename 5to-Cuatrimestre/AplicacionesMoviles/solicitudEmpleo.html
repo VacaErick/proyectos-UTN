@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitud de Empleo</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>SOLICITUD DE EMPLEO</h1>
+
+      <table>
+        <tr>
+          <td colspan="2">
+            <strong>Puesto que Solicita:</strong>
+            <input type="text" name="puesto" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Fecha de Solicitud:</strong>
+            <input type="date" name="fecha_solicitud" />
+          </td>
+          <td>
+            <strong>Sueldo Mensual Deseado:</strong>
+            $<input type="number" name="sueldo_deseado" class="small-input" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Sueldo Mensual Aprobado:</strong>
+            $<input type="number" name="sueldo_aprobado" class="small-input" />
+          </td>
+          <td>
+            <strong>Fecha de Contratación:</strong>
+            <input type="date" name="fecha_contratacion" />
+          </td>
+        </tr>
+      </table>
+
+      <p class="note">
+        Sea tan amable de llenar esta solicitud en forma manuscrita<br />
+        NOTA: Toda información aquí proporcionada será tratada
+        confidencialmente.
+      </p>
+
+      <div class="section-title">DATOS PERSONALES</div>
+
+      <table>
+        <tr>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Nombre(s)</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="apellido_paterno" /></td>
+          <td><input type="text" name="apellido_materno" /></td>
+          <td><input type="text" name="nombres" /></td>
+          <td><input type="number" name="edad" class="small-input" /></td>
+          <td>
+            <select name="sexo">
+              <option value="">Seleccione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">Domicilio</th>
+          <th>Colonia</th>
+          <th>Código Postal</th>
+          <th>Alcaldía o Municipio</th>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="text" name="domicilio" /></td>
+          <td><input type="text" name="colonia" /></td>
+          <td><input type="text" name="codigo_postal" /></td>
+          <td><input type="text" name="municipio" /></td>
+        </tr>
+        <tr>
+          <th>Peso</th>
+          <th>Estatura</th>
+          <th>Lugar de Nacimiento</th>
+          <th>Nacionalidad</th>
+          <th>Fecha de Nacimiento</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="peso" placeholder="kg" /></td>
+          <td><input type="text" name="estatura" placeholder="cm" /></td>
+          <td><input type="text" name="lugar_nacimiento" /></td>
+          <td><input type="text" name="nacionalidad" /></td>
+          <td><input type="date" name="fecha_nacimiento" /></td>
+        </tr>
+        <tr>
+          <th>Teléfono</th>
+          <th>Teléfono Celular</th>
+          <th>¿Vive con su Padre?</th>
+          <th>Estado Civil</th>
+          <th>Correo Electrónico</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="telefono" /></td>
+          <td><input type="text" name="celular" /></td>
+          <td>
+            <select name="vive_con_padre">
+              <option value="">Seleccione</option>
+              <option value="Sí">Sí</option>
+              <option value="No">No</option>
+            </select>
+          </td>
+          <td>
+            <select name="estado_civil">
+              <option value="">Seleccione</option>
+              <option value="Soltero">Soltero(a)</option>
+              <option value="Casado">Casado(a)</option>
+              <option value="Divorciado">Divorciado(a)</option>
+              <option value="Viudo">Viudo(a)</option>
+              <option value="Unión Libre">Unión Libre</option>
+            </select>
+          </td>
+          <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+          <th colspan="2">Personas que dependen de usted</th>
+          <th>Hijos</th>
+          <th>Padres</th>
+          <th>Otros</th>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td>
+            <input
+              type="number"
+              name="dependientes_hijos"
+              class="small-input"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              name="dependientes_padres"
+              class="small-input"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              name="dependientes_otros"
+              class="small-input"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>Twitter</th>
+          <th>Instagram</th>
+          <th colspan="3">Otro (Empleo)</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="twitter" /></td>
+          <td><input type="text" name="instagram" /></td>
+          <td colspan="3"><input type="text" name="otro_empleo" /></td>
+        </tr>
+      </table>
+
+      <div class="section-title">DOCUMENTACIÓN</div>
+
+      <table>
+        <tr>
+          <th colspan="2">Clave Única del Registro de Población (CURP)</th>
+          <th colspan="2">Reg. Fed. de Contribuyentes (RFC)</th>
+          <th>Número de Seguridad Social</th>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="text" name="curp" /></td>
+          <td colspan="2"><input type="text" name="rfc" /></td>
+          <td><input type="text" name="nss" /></td>
+        </tr>
+        <tr>
+          <th>Cartilla Servicio Militar No.</th>
+          <th>Pasaporte No.</th>
+          <th>¿Tiene licencia de manejo?</th>
+          <th>Clase</th>
+          <th>No. de Licencia</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="cartilla_militar" /></td>
+          <td><input type="text" name="pasaporte" /></td>
+          <td>
+            <select name="tiene_licencia">
+              <option value="">Seleccione</option>
+              <option value="Sí">Sí</option>
+              <option value="No">No</option>
+            </select>
+          </td>
+          <td><input type="text" name="clase_licencia" /></td>
+          <td><input type="text" name="numero_licencia" /></td>
+        </tr>
+        <tr>
+          <th>Vigencia</th>
+          <th colspan="4">
+            Siendo extranjero, ¿qué documentos permiten trabajar en el país?
+          </th>
+        </tr>
+        <tr>
+          <td><input type="date" name="vigencia_licencia" /></td>
+          <td colspan="4"><input type="text" name="docs_extranjero" /></td>
+        </tr>
+      </table>
+
+      <div class="section-title">ESTADO DE SALUD Y HÁBITOS PERSONALES</div>
+
+      <table>
+        <tr>
+          <th>¿Cómo considera su estado de salud actual?</th>
+          <th>¿Padece alguna enfermedad crónica?</th>
+          <th colspan="3">(Explique)</th>
+        </tr>
+        <tr>
+          <td>
+            <select name="estado_salud">
+              <option value="">Seleccione</option>
+              <option value="Excelente">Excelente</option>
+              <option value="Bueno">Bueno</option>
+              <option value="Regular">Regular</option>
+              <option value="Malo">Malo</option>
+            </select>
+          </td>
+          <td>
+            <select name="enfermedad_cronica">
+              <option value="">Seleccione</option>
+              <option value="No">No</option>
+              <option value="Sí">Sí</option>
+            </select>
+          </td>
+          <td colspan="3">
+            <input type="text" name="explicacion_enfermedad" />
+          </td>
+        </tr>
+        <tr>
+          <th>¿Practica Ud. algún Deporte?</th>
+          <th>¿Pertenece a algún Club Social o Deportivo?</th>
+          <th colspan="3">¿Cuál es su pasatiempo favorito?</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="deportes" /></td>
+          <td><input type="text" name="clubes" /></td>
+          <td colspan="3"><input type="text" name="pasatiempo" /></td>
+        </tr>
+        <tr>
+          <th colspan="5">¿Cuál es su meta en la vida?</th>
+        </tr>
+        <tr>
+          <td colspan="5"><input type="text" name="meta_vida" /></td>
+        </tr>
+      </table>
+
+      <div class="section-title">DATOS FAMILIARES</div>
+
+      <table>
+        <tr>
+          <th>NOMBRE</th>
+          <th>EDAD</th>
+          <th>PARENTESCO</th>
+          <th>DOMICILIO</th>
+          <th>OCUPACIÓN</th>
+        </tr>
+        <tr>
+          <td><input type="text" name="nombre_padre" /></td>
+          <td><input type="number" name="edad_padre" class="small-input" /></td>
+          <td>Padre</td>
+          <td><input type="text" name="domicilio_padre" /></td>
+          <td><input type="text" name="ocupacion_padre" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" name="nombre_madre" /></td>
+          <td><input type="number" name="edad_madre" class="small-input" /></td>
+          <td>Madre</td>
+          <td><input type="text" name="domicilio_madre" /></td>
+          <td><input type="text" name="ocupacion_madre" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" name="nombre_esposo" /></td>
+          <td>
+            <input type="number" name="edad_esposo" class="small-input" />
+          </td>
+          <td>Esposa(o)</td>
+          <td><input type="text" name="domicilio_esposo" /></td>
+          <td><input type="text" name="ocupacion_esposo" /></td>
+        </tr>
+        <tr>
+          <th colspan="5">Nombre y edades de los hijos</th>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <textarea name="hijos" rows="3" style="width: 100%"></textarea>
+          </td>
+        </tr>
+      </table>
+
+      <div class="section-title">ESCOLARIDAD</div>
+
+      <table>
+        <tr>
+          <th>NIVEL</th>
+          <th>NOMBRE</th>
+          <th>DIRECCIÓN</th>
+          <th>DE FECHAS</th>
+          <th>A</th>
+          <th>AÑOS</th>
+          <th>TÍTULO RECIBIDO</th>
+        </tr>
+        <tr>
+          <td>Primaria</td>
+          <td><input type="text" name="primaria_nombre" /></td>
+          <td><input type="text" name="primaria_direccion" /></td>
+          <td><input type="text" name="primaria_desde" /></td>
+          <td><input type="text" name="primaria_hasta" /></td>
+          <td>
+            <input type="number" name="primaria_anos" class="small-input" />
+          </td>
+          <td><input type="text" name="primaria_titulo" /></td>
+        </tr>
+        <tr>
+          <td>Secundaria o Prevocacional</td>
+          <td><input type="text" name="secundaria_nombre" /></td>
+          <td><input type="text" name="secundaria_direccion" /></td>
+          <td><input type="text" name="secundaria_desde" /></td>
+          <td><input type="text" name="secundaria_hasta" /></td>
+          <td>
+            <input type="number" name="secundaria_anos" class="small-input" />
+          </td>
+          <td><input type="text" name="secundaria_titulo" /></td>
+        </tr>
+        <tr>
+          <td>Preparatoria o Vocacional</td>
+          <td><input type="text" name="preparatoria_nombre" /></td>
+          <td><input type="text" name="preparatoria_direccion" /></td>
+          <td><input type="text" name="preparatoria_desde" /></td>
+          <td><input type="text" name="preparatoria_hasta" /></td>
+          <td>
+            <input type="number" name="preparatoria_anos" class="small-input" />
+          </td>
+          <td><input type="text" name="preparatoria_titulo" /></td>
+        </tr>
+        <tr>
+          <td>Profesional</td>
+          <td><input type="text" name="profesional_nombre" /></td>
+          <td><input type="text" name="profesional_direccion" /></td>
+          <td><input type="text" name="profesional_desde" /></td>
+          <td><input type="text" name="profesional_hasta" /></td>
+          <td>
+            <input type="number" name="profesional_anos" class="small-input" />
+          </td>
+          <td><input type="text" name="profesional_titulo" /></td>
+        </tr>
+        <tr>
+          <td>Comercial u Otras</td>
+          <td><input type="text" name="comercial_nombre" /></td>
+          <td><input type="text" name="comercial_direccion" /></td>
+          <td><input type="text" name="comercial_desde" /></td>
+          <td><input type="text" name="comercial_hasta" /></td>
+          <td>
+            <input type="number" name="comercial_anos" class="small-input" />
+          </td>
+          <td><input type="text" name="comercial_titulo" /></td>
+        </tr>
+        <tr>
+          <th colspan="7">Estudios que está efectuando en la actualidad:</th>
+        </tr>
+        <tr>
+          <td>Escuela</td>
+          <td><input type="text" name="actual_escuela" /></td>
+          <td>Horario</td>
+          <td><input type="text" name="actual_horario" /></td>
+          <td>Curso o Carrera</td>
+          <td colspan="2"><input type="text" name="actual_curso" /></td>
+        </tr>
+      </table>
+
+    </div>
+  </body>
+</html>

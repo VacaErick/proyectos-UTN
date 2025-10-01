@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conversor de Grados</title>
+    <link rel="stylesheet" href="../css/grados.css">
+  </head>
+  <body>
+    <form method="post" action="../php/grados.php">
+      <h1>Conversor de Temperatura</h1>
+
+      <label>Temperatura:</label>
+      <input type="number" name="temperatura" step="0.1" required />
+
+      <label>De:</label>
+      <select name="de_grado" required>
+        <option value="C">Celsius (°C)</option>
+        <option value="F">Fahrenheit (°F)</option>
+        <option value="K">Kelvin (K)</option>
+      </select>
+
+      <label>A:</label>
+      <select name="a_grado" required>
+        <option value="F">Fahrenheit (°F)</option>
+        <option value="C">Celsius (°C)</option>
+        <option value="K">Kelvin (K)</option>
+      </select>
+
+      <input type="submit" value="Convertir" />
+      <a href="../conversor.html">Volver al inicio</a>
+    </form>
+  </body>
+</html>

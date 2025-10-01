@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Líquidos</title>
+    <link rel="stylesheet" href="../css/liquidos.css" />
+  </head>
+  <body>
+    <form method="post" action="../php/liquidos.php">
+      <h1>Conversor de Volumen/Líquidos</h1>
+
+      <label>Volumen:</label>
+      <input type="number" name="volumen" step="0.01" required />
+
+      <label>De:</label>
+      <select name="de_unidad" required>
+        <option value="l">Litros (L)</option>
+        <option value="ml">Mililitros (mL)</option>
+        <option value="gal">Galones (gal)</option>
+        <option value="oz">Onzas fluidas (fl oz)</option>
+      </select>
+
+      <label>A:</label>
+      <select name="a_unidad" required>
+        <option value="gal">Galones (gal)</option>
+        <option value="l">Litros (L)</option>
+        <option value="ml">Mililitros (mL)</option>
+        <option value="oz">Onzas fluidas (fl oz)</option>
+      </select>
+
+      <input type="submit" value="Convertir" />
+      <a href="../conversor.html">Volver al inicio</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Peso</title>
+    <link rel="stylesheet" href="../css/peso.css" />
+  </head>
+  <body>
+    <form method="post" action="../php/peso.php">
+      <h1>Conversor de Peso/Masa</h1>
+
+      <label>Peso:</label>
+      <input type="number" name="peso" step="0.01" required />
+
+      <label>De:</label>
+      <select name="de_unidad" required>
+        <option value="kg">Kilogramos (kg)</option>
+        <option value="g">Gramos (g)</option>
+        <option value="lb">Libras (lb)</option>
+        <option value="oz">Onzas (oz)</option>
+      </select>
+
+      <label>A:</label>
+      <select name="a_unidad" required>
+        <option value="lb">Libras (lb)</option>
+        <option value="kg">Kilogramos (kg)</option>
+        <option value="g">Gramos (g)</option>
+        <option value="oz">Onzas (oz)</option>
+      </select>
+
+      <input type="submit" value="Convertir" />
+      <a href="conversor.html">Volver al inicio</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escalamiento de Valores</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        display: flex;
+        width: 500px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: white;
+      }
+
+      .left-panel {
+        flex: 1;
+        padding: 20px;
+        border-right: 1px solid #ccc;
+      }
+
+      .right-panel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f9f9f9;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .color-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: black;
+        border: 2px solid #333;
+      }
+
+      .ranges {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .range-item {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <h2>Valor</h2>
+        <input
+          type="number"
+          id="valorInput"
+          min="0"
+          max="255"
+          placeholder="Ingrese un valor (0-255)"
+        />
+        <button onclick="cambiarColor()">Cambio</button>
+      </div>
+
+      <div class="right-panel">
+        <div class="color-circle" id="colorCircle"></div>
+      </div>
+    </div>
+
+    <script>
+      function cambiarColor() {
+        const valorInput = document.getElementById("valorInput");
+        const colorCircle = document.getElementById("colorCircle");
+        const valor = parseInt(valorInput.value);
+
+        if (isNaN(valor) || valor < 0 || valor > 255) {
+          alert("Por favor, ingrese un valor válido entre 0 y 255");
+          return;
+        }
+
+        let color;
+        if (valor >= 0 && valor <= 50) {
+          color = "black";
+        } else if (valor >= 51 && valor <= 100) {
+          color = "gray";
+        } else if (valor >= 101 && valor <= 150) {
+          color = "blue";
+        } else if (valor >= 151 && valor <= 200) {
+          color = "yellow";
+        } else if (valor >= 201 && valor <= 255) {
+          color = "white";
+        }
+
+        colorCircle.style.backgroundColor = color;
+      }
+
+      document
+        .getElementById("valorInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            cambiarColor();
+          }
+        });
+    </script>
+  </body>
+</html>

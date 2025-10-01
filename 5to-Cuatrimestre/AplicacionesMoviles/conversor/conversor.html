@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor</title>
+    <link rel="stylesheet" href="css/conversor.css">
+  </head>
+  <body>
+    <form method="post" action="php/redirigir.php">
+      <h1>Seleccione el tipo de conversión</h1>
+      <select name="conversor" required>
+        <option value="">-- Seleccione --</option>
+        <option value="moneda">Conversor de Moneda</option>
+        <option value="grados">Conversor de Grados</option>
+        <option value="peso">Conversor de Peso</option>
+        <option value="liquidos">Conversor de Líquidos</option>
+      </select>
+      <input type="submit" value="Ir al Conversor" />
+    </form>
+  </body>
+</html>

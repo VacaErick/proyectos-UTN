@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Moneda</title>
+    <link rel="stylesheet" href="../css/moneda.css" />
+  </head>
+  <body>
+    <form method="post" action="../php/moneda.php">
+      <h1>Conversor de Moneda</h1>
+
+      <label>Cantidad:</label>
+      <input type="number" name="cantidad" step="0.01" required />
+
+      <label>De:</label>
+      <select name="de_moneda" required>
+        <option value="MXN">Peso Mexicano (MXN)</option>
+        <option value="USD">Dólar Americano (USD)</option>
+        <option value="EUR">Euro (EUR)</option>
+      </select>
+
+      <label>A:</label>
+      <select name="a_moneda" required>
+        <option value="USD">Dólar Americano (USD)</option>
+        <option value="MXN">Peso Mexicano (MXN)</option>
+        <option value="EUR">Euro (EUR)</option>
+      </select>
+
+      <input type="submit" value="Convertir" />
+      <a href="conversor.html">Volver al inicio</a>
+    </form>
+  </body>
+</html>
