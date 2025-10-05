@@ -2,9 +2,9 @@
 
 const int pinPotenciometro = 34;
 const int pinServo = 13;
-const int led1 = 2;    // LED para 0-60 grados
-const int led2 = 4;    // LED para 61-120 grados  
-const int led3 = 5;    // LED para 121-180 grados
+const int led1 = 2;    
+const int led2 = 4;      
+const int led3 = 5;    
 
 Servo miServo;
 

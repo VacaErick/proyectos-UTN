@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS i4app_db CHARACTER SET utf8mb4 COLLATE utf8mb4_uni
 USE i4app_db;
 
 CREATE TABLE IF NOT EXISTS roles (
-    id TYNYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) UNIQUE NOT NULL
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT IGNORE INTO roles (name) VALUES ('admin'), ('user');
 
 INSERT INTO users (name, email, password_hash, role_id, status) VALUES 
-('Admin vaca', 'vaca@i4app.local', 'admin', 1, 'active'),
+('Admin vaca', 'vaca@i4app.local', '$2y$10$r8R2HkfVJdS6gM7qLwZ4TuY7zA1bC3eF5hJ8kL2nP4sV6xR9tBvW', 1, 'active');
 
 INSERT INTO users (name, email, password_hash, role_id, status) VALUES 
-('User prueba', 'prueba@i4app.local', 'prueba' ,2, 'active');
+('User prueba', 'prueba@i4app.local', '$2y$10$m5QpS8rV2tH7jK3lN6bF9eR1cW4xZ7yA0dC3fG6hJ8kL2nP4sV6xR9' ,2, 'active');
